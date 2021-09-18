@@ -1,0 +1,91 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"></link>
+    <title></title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            background-color: #b60d50;
+        }
+
+        .LoginRegister {
+            width: 280px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid #000000;
+            border-radius: 5px;
+            padding: 20px;
+            background-color: white;
+        }
+
+        .textBox {
+            width: 100%;
+            overflow: hidden;
+            font-size: 20px;
+            padding: 8px 0;
+            margin: 10px 0;
+            border-bottom: 1px solid #000000;
+            text-align: center;
+        }
+
+        .label {
+            font-size: 20px;
+        }
+
+        .btnSend {
+            width: 100%;
+            border: 2px solid #000000;
+            color: black;
+            padding: 10px 0px;
+            border-radius: 10px;
+            margin: 5px 0px;
+        }
+
+            .btnSend:hover {
+                background: #318aac;
+                color: #fff !important;
+            }
+
+        #TitleLogin {
+            width: 100%;
+            font-size: 40px;
+            text-align: right;
+            border-bottom: 1px solid #000000;
+            margin-bottom 5px;
+        }
+
+        #iconUser {
+            
+            margin: 5px;
+            font-size: 100px;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <form action="" method="post">
+            <div class="LoginRegister">
+                <i id="iconUser" class="fas fa-user-graduate"></i><br />
+                <label id="TitleLogin">Univalle Login</label><br />
+                <label class="label" for="txtUserName">Nombre de Usuario</label><br />
+                <input class="textBox" type="text" placeholder="Nombre de Usuario" name="txtUserName" value="" /><br />
+                <label class="label" for="txtPassword">Contraseña</label><br />
+                <input class="textBox" type="password" placeholder="Contraseña" name="txtPassword" value="" /><br />
+                <input class="btnSend" type="button" value="LOGIN" />
+            </div>
+        </form>
+    </div>
+</body>
+</html>
