@@ -9,9 +9,11 @@
     <meta name="viewport" content="width=device-width" />
     <title></title>
     <style type="text/css">
+
         .listCards {
+            margin-top: 30px;
             display: flex;
-            align-items: stretch;
+            justify-content: space-evenly;
         }
 
         .card {
@@ -24,7 +26,11 @@
             box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
             font-family: roboto;
             text-align: center;
-            flex: 2;
+            
+        }
+
+        .card:last-child {
+            align-self: center;
         }
 
         .card-image {
@@ -87,7 +93,16 @@
             padding: 10px;
         }
 
+        .card:hover {
+            transform: scale( 1.15 );
+            box-shadow: 5px 5px 15px rgba( 0 , 0 , 0 , 0.6 );
+        }
 
+        .card {
+            transition: 0 .5s ease;
+            cursor: pointer;
+            margin: 30px;
+        }
     </style>
 </head>
 <body>
