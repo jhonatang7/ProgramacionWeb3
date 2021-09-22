@@ -89,13 +89,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\BDD1.jpg" />
+    <Content Include="Images\DataBase2.jpg" />
     <Content Include="Images\LogoUnivalle.png" />
+    <Content Include="Images\Programming3.jpg" />
+    <Content Include="Images\WebProgramming2.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CommentStructure.cshtml" />
     <None Include="index.cshtml" />
     <Content Include="Login.cshtml" />
     <Content Include="Materia1.cshtml" />
