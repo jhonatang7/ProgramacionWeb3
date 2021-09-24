@@ -90,6 +90,7 @@
   <ItemGroup>
     <Content Include="Images\BDD1.jpg" />
     <Content Include="Images\DataBase2.jpg" />
+    <Content Include="Images\ImgUserComment.png" />
     <Content Include="Images\LogoUnivalle.png" />
     <Content Include="Images\Programming3.jpg" />
     <Content Include="Images\WebProgramming2.jpg" />
@@ -102,7 +103,7 @@
     <Content Include="CommentStructure.cshtml" />
     <None Include="index.cshtml" />
     <Content Include="Login.cshtml" />
-    <Content Include="Materia1.cshtml" />
+    <Content Include="ThirdSemester.cshtml" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
