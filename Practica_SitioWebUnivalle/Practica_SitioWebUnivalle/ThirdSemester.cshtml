@@ -1,5 +1,8 @@
 ﻿@{
-    Layout = null;
+    var db = Database.Open("connectionstring");
+    var query = db.Query("SELECT * FROM subject WHERE semester = 3");
+
+    var grid = new WebGrid(source: query);
 }
 
 <!DOCTYPE html>
@@ -43,27 +46,7 @@
         }
 
 
-        #card-image-Prog3 {
-            grid-area: image;
-            border-top-left-radius: 15px;
-            border-top-right-radius: 15px;
-            background-size: cover;
-            position: center;
-            width: 100%;
-            height: 100%;
-        }
-
-        #card-image-ProgWeb2 {
-            grid-area: image;
-            border-top-left-radius: 15px;
-            border-top-right-radius: 15px;
-            background-size: cover;
-            position: center;
-            width: 100%;
-            height: 100%;
-        }
-
-        #card-image-BDD2 {
+        #card-image {
             grid-area: image;
             border-top-left-radius: 15px;
             border-top-right-radius: 15px;
@@ -105,47 +88,19 @@
 <body>
     <div>
         <div class="listCards">
-            <div class="card">
-                <div id="card-image"><img id="card-image-Prog3" src="~/Images/Programming3.jpg"/></div>
-                <div class="card-text">
-                    <h2>Programacion 3</h2>
-                    <p>
-                        Programacion 3 desde mi punto de vista es un punto de inflexión en la carrera.
-                        Debido a ser la materia donde se exige y requiere de conocimiento para avanzar,
-                        debido a esto algo para entender ciertos temas seria tener bien estructurado la
-                        POO(Programacion orientada a objetos).
-                    </p>
+            @foreach (var row in query)
+            {
+                <div class="card">
+                    <div id="card-image"><img id="card-image" src="~/Images/Semester/@(row.subjectID).jpg" /></div>
+                    <div class="card-text">
+                        <h2> @row.name </h2>
+                        <p>
+                            @row.description
+                        </p>
+                    </div>
                 </div>
-            </div>
-
-            <div class="card">
-                <div id="card-image"><img id="card-image-BDD2" src="~/Images/DataBase2.jpg"/></div>
-                <div class="card-text">
-                    <h2>Base de Datos 2</h2>
-                    <p>
-                        Lo mas importante es seguir el ritmo del docente, es una materia que requiere
-                        mucho esfuerzo debido a ser una de las primeras experiencias con un proyecto
-                        semi-real por lo que te exigen mucho. Lo mejor es tener una buena organización
-                        y hacer cada día, colaborando con tus compañeros.
-                    </p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div id="card-image"><img id="card-image-ProgWeb2" src="~/Images/WebProgramming2.jpg" /></div>
-                <div class="card-text">
-                    <h2>Programacion Web 2</h2>
-                    <p>
-                        No es tan necesario tener conocimientos de html o css "buenos", debido a que se lleva en su mayoria el
-                        desarrollo por backend. Esto es algo ajeno en cierta forma a lo aprendido en programacion web 1, por lo
-                        que es necesario entender lo que se esta haciendo. Siempre se sugiere preguntar.
-                    </p>
-                </div>
-            </div>
+            }
         </div>
-        
-
-
     </div>
 </body>
 </html>

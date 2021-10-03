@@ -76,3 +76,7 @@ D:\Jhonatan\PROG_WEB_3\ProgramacionWeb3\Practica_SitioWebUnivalle\Practica_Sitio
 D:\Jhonatan\PROG_WEB_3\ProgramacionWeb3\Practica_SitioWebUnivalle\Practica_SitioWebUnivalle\obj\Debug\Practica_SitioWebUnivalle.csproj.CopyComplete
 D:\Jhonatan\PROG_WEB_3\ProgramacionWeb3\Practica_SitioWebUnivalle\Practica_SitioWebUnivalle\obj\Debug\Practica_SitioWebUnivalle.dll
 D:\Jhonatan\PROG_WEB_3\ProgramacionWeb3\Practica_SitioWebUnivalle\Practica_SitioWebUnivalle\obj\Debug\Practica_SitioWebUnivalle.pdb
+D:\Jhonatan\PROG_WEB_3\ProgramacionWeb3\Practica_SitioWebUnivalle\Practica_SitioWebUnivalle\bin\WebMatrix.Data.dll
+D:\Jhonatan\PROG_WEB_3\ProgramacionWeb3\Practica_SitioWebUnivalle\Practica_SitioWebUnivalle\bin\WebMatrix.WebData.dll
+D:\Jhonatan\PROG_WEB_3\ProgramacionWeb3\Practica_SitioWebUnivalle\Practica_SitioWebUnivalle\bin\WebMatrix.Data.xml
+D:\Jhonatan\PROG_WEB_3\ProgramacionWeb3\Practica_SitioWebUnivalle\Practica_SitioWebUnivalle\bin\WebMatrix.WebData.xml
