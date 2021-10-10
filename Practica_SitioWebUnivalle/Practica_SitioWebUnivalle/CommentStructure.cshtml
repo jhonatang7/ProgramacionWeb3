@@ -1,5 +1,36 @@
 ﻿@{
-    Layout = null;
+    Layout = "_layout.cshtml";
+    Validation.RequireField("TextComments", "coment is required");
+
+    var coment = Request.Form["TextComments"];
+    var userID = 1;
+    var subjectID = 1;
+    var teacherID = 0;
+    var db = Database.Open("connectionstring");
+
+    if (subjectID  != 0)
+    {
+        if (IsPost && Validation.IsValid())
+        {
+            var insertQuery = @"INSERT INTO coments (coment, userID, subjectID) values(@0, @1, @2);";
+            db.Execute(insertQuery, coment, userID, subjectID);
+            Response.Redirect("~/Login");
+        }
+    }
+    else
+    {
+        if (teacherID != 0)
+        {
+            if (IsPost && Validation.IsValid())
+            {
+                var insertQuery = @"INSERT INTO coments (coment, userID, teacherID) values(@0, @1, @2);";
+                db.Execute(insertQuery, coment, userID, teacherID);
+                Response.Redirect("~/Login");
+            }
+        }
+    }
+
+
 }
 
 <!DOCTYPE html>

@@ -1,5 +1,5 @@
 ﻿@{
-
+    Layout = "_layout.cshtml";
     var db = Database.Open("connectionstring");
     var query = db.Query("SELECT * FROM subject WHERE semester = 2");
 

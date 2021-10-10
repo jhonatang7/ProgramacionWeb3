@@ -1,5 +1,39 @@
 ﻿@{
+    Validation.RequireField("txtName", "Name is required");
+    Validation.RequireField("txtLastName", "LastName is required");
+    Validation.RequireField("txtSeccondLastName", "SeccondLastName is required");
+    Validation.RequireField("txtEmail", "Email is required");
+    Validation.Add("txtEmail", Validator.Regex(@"^([\w]*[\w\.]*(?!\.))", "el formato no es el correcto"));
+    Validation.RequireField("txtPassword1", "Password1 is required");
+    Validation.Add("txtPassword1", Validator.EqualsTo("txtPassword2", "Las contraseñas deben ser iguales"));
+    Validation.RequireField("txtPassword2", "Password2 is required");
+    Validation.RequireField("selectEmail", "Elige una opcion");
+
+    var Name = Request.Form["txtName"];
+    var LastName = Request.Form["txtLastName"];
+    var SeccondLastName = Request.Form["txtSeccondLastName"];
+    var UserName = Request.Form["txtName"];
+    var Password = Request.Form["txtPassword1"];
+    var mail = Request.Form["txtEmail"];
+    var type = 0;
+    var email1 = "@est.univalle.edu";
+    var email2 = "@univalle.edu";
+    var email = Request.Form["selectEmail"];
     var db = Database.Open("connectionstring");
+    if(email == email1)
+    {
+        type = 1;
+    }
+    if (Validation.IsValid())
+    {
+        if (IsPost)
+        {
+            var insertQuery = @"INSERT INTO users (name, lastName, userName, password, mail, type) values(@0, @1, @2, @3, @4, @5)";
+            db.Execute(insertQuery, Name, LastName + SeccondLastName, UserName, Password, mail + email, type);
+            Response.Redirect("~/Login");
+        }
+    }
+
 }
 
 <!DOCTYPE html>
@@ -8,12 +42,6 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title></title>
-    <script type="text/javascript">
-        function insert() {
-            console.log("asd");
-        }
-
-    </script>
     <style type="text/css">
         body {
             margin: 0;
@@ -74,21 +102,37 @@
         #logoU {
             margin: 5px;
         }
+        select {
+            width: 100%;
+            overflow: hidden;
+            font-size: 20px;
+            padding: 8px 0;
+            margin: 10px 0;
+            border-bottom: 1px solid #000000;
+            text-align: left;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
     <div>
+        @Html.ValidationSummary("*")
         <form action="" method="post">
             <div class="LoginRegister">
-                <img src="~/Images/LogoUnivalle.png" id="logoU" width="100" height="100"><br />
+                <img src="~/Images/LogoUnivalle.png" id="logoU" width="100" height="100" required="required"><br />
                 <label id="TitleLogin">Univalle Register</label><br />
-                <input class="textBox" type="text" placeholder="Nombre" name="txtName" value="" required="required" /><br />
-                <input class="textBox" type="text" placeholder="Primer Apellido" name="txtLastName" value=""required="required" /><br />
-                <input class="textBox" type="text" placeholder="Segundo Apellido" name="txtSeccondLastName" value="" required="required" /><br />
-                <input class="textBox" type="text" placeholder="Correo institucional" name="txtEmail" value="" required="required"  /><br />
-                <input class="textBox" type="password" placeholder="Contraseña" name="txtPassword1" value="" required="required" /><br />
+                <input class="textBox" type="text" placeholder="Nombre" name="txtName" value="@Name" required="required" />
+                @Validation.<br />
+                <input class="textBox" type="text" placeholder="Primer Apellido" name="txtLastName" value="@LastName" required="required" /><br />
+                <input class="textBox" type="text" placeholder="Segundo Apellido" name="txtSeccondLastName" value="@SeccondLastName" required="required" /><br />
+                <input class="textBox" type="text" placeholder="Correo institucional" name="txtEmail" value="@mail" required="required" /> 
+                <select name="selectEmail">
+                    <option value="@email1" selected>@email1</option>
+                    <option value="@email2" >@email2</option>
+                </select><br />
+                <input class="textBox" type="password" placeholder="Contraseña" name="txtPassword1" value="@Password" required="required" /><br />
                 <input class="textBox" type="password" placeholder="Repita su Contraseña" name="txtPassword2" value="" required="required" /><br />
-                <input class="btnSend" type="button" value="REGISTRARSE" onclick="insert()"/>
+                <input class="btnSend" type="submit" value="REGISTRARSE" />
             </div>
         </form>
     </div>

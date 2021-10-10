@@ -1,0 +1,126 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <style type="text/css">
+        html {
+            box-sizing: border-box;
+        }
+
+        *, *:before, *:after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            background: #27ae60;
+        }
+
+        nav ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        h1 {
+            width: 500px;
+            margin: 100px auto 20px;
+            color: #f0f0f0;
+            text-align: center;
+        }
+
+        .nav {
+            width: 100%;
+            margin: 0 auto;
+            background: #C44D58;
+            color: #f0f0f0;
+            text-align: right;
+        }
+
+            .nav a {
+                display: block;
+                padding: 0 16px;
+                line-height: inherit;
+                cursor: pointer;
+            }
+
+        .nav__menu {
+            line-height: 45px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .nav__menu-item {
+            display: inline-block;
+            position: relative;
+        }
+
+            .nav__menu-item:hover {
+                background-color: #b60d50;
+            }
+
+                .nav__menu-item:hover .nav__submenu {
+                    display: block;
+                }
+
+        .nav__submenu {
+            font-weight: 300;
+            text-transform: none;
+            display: none;
+            position: absolute;
+            width: 220px;
+            background-color: #b60d50;
+        }
+
+        .nav__submenu-item:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+        .footer {
+            text-align: center
+        }
+        img {
+            width: 100px;
+            height: 100px;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div>
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800,300" rel="stylesheet" type="text/css" />
+            <img id="card-image" src="~/Images/LogoUnivalle.png" />
+            <nav class="nav">
+                <ul class="nav__menu">
+                    <li class="nav__menu-item"><a href="#">Inicio</a></li>
+                    <li class="nav__menu-item">
+                        <a>Materias</a>
+                        <ul class="nav__submenu">
+                            <li class="nav__submenu-item"> <a href="~/SecondSemester.cshtml">Segundo Semestre</a></li>
+                            <li class="nav__submenu-item"> <a href="#">Tercer Semestre</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav__menu-item"><a href="#">Docentes</a></li>
+                </ul>
+            </nav>
+        </div>
+        @RenderBody()
+        <div class="footer">
+                <h2>Copyright ©  <a href="#">Contactos</a></h2>
+        </div>
+    </div>
+</body>
+</html>
