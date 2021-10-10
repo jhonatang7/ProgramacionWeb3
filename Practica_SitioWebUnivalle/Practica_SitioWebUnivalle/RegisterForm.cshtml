@@ -1,0 +1,96 @@
+﻿@{
+    var db = Database.Open("connectionstring");
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <script type="text/javascript">
+        function insert() {
+            console.log("asd");
+        }
+
+    </script>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            background-color: #b60d50;
+        }
+
+        .LoginRegister {
+            width: 350px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid #000000;
+            border-radius: 15px;
+            padding: 20px;
+            background-color: white;
+            text-align: center;
+        }
+
+        .textBox {
+            width: 100%;
+            overflow: hidden;
+            font-size: 20px;
+            padding: 8px 0;
+            margin: 10px 0;
+            border-bottom: 1px solid #000000;
+            text-align: left;
+            border-radius: 10px;
+        }
+
+        .label {
+            font-size: 20px;
+        }
+
+        .btnSend {
+            width: 100%;
+            border: 2px solid #000000;
+            color: black;
+            padding: 10px 0px;
+            border-radius: 10px;
+            margin: 5px 0px;
+        }
+
+            .btnSend:hover {
+                background: #ce083f;
+                color: #fff;
+                cursor: pointer;
+            }
+
+        #TitleLogin {
+            width: 100%;
+            font-size: 40px;
+            text-align: right;
+        }
+
+        #logoU {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form action="" method="post">
+            <div class="LoginRegister">
+                <img src="~/Images/LogoUnivalle.png" id="logoU" width="100" height="100"><br />
+                <label id="TitleLogin">Univalle Register</label><br />
+                <input class="textBox" type="text" placeholder="Nombre" name="txtName" value="" required="required" /><br />
+                <input class="textBox" type="text" placeholder="Primer Apellido" name="txtLastName" value=""required="required" /><br />
+                <input class="textBox" type="text" placeholder="Segundo Apellido" name="txtSeccondLastName" value="" required="required" /><br />
+                <input class="textBox" type="text" placeholder="Correo institucional" name="txtEmail" value="" required="required"  /><br />
+                <input class="textBox" type="password" placeholder="Contraseña" name="txtPassword1" value="" required="required" /><br />
+                <input class="textBox" type="password" placeholder="Repita su Contraseña" name="txtPassword2" value="" required="required" /><br />
+                <input class="btnSend" type="button" value="REGISTRARSE" onclick="insert()"/>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

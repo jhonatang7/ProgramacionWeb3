@@ -94,6 +94,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\styleSubjectCard.css" />
     <Content Include="Images\BDD1.jpg" />
     <Content Include="Images\Semester\2.jpg" />
     <Content Include="Images\ImgUserComment.png" />
@@ -111,6 +112,8 @@
     <Content Include="Login.cshtml" />
     <Content Include="ThirdSemester.cshtml" />
     <None Include="packages.config" />
+    <Content Include="RegisterForm.cshtml" />
+    <Content Include="SecondSemester.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
