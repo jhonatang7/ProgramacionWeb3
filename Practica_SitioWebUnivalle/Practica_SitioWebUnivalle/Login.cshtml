@@ -15,6 +15,7 @@
         
         if ( grid != null)
         {
+            Session["userID"] = grid[0];
             Response.Redirect("~/ThirdSemester");
         }
         else
@@ -95,6 +96,11 @@
         .labelAnswer{
             font-size: 20px;
         }
+        .registerhref{
+            font-size: 15px;
+            text-decoration: none;
+            color: gray;
+        }
 
     </style>
 </head>
@@ -109,7 +115,8 @@
                 <input class="textBox" type="password" placeholder="Contraseña" name="txtPassword" value="" /><br />
                 <label class="labelAnswer">@Html.ValidationMessage("txtPassword")</label><br />
                 <label class="labelAnswer">@message</label>
-                <input class="btnSend" type="submit" value="LOGIN" />
+                <input class="btnSend" type="submit" value="LOGIN" /><br />
+                <a class="registerhref" href="~/RegisterForm.cshtml">REGISTRARSE</a>
             </div>
         </form>
     </div>
