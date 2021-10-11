@@ -1,12 +1,15 @@
 ﻿@{
+
     string[] value = Request.Url.Query.Split('=');
     if (IsPost)
     {
-        OnPost(int.Parse(Request["id"].ToString()),value[1], value[2]);
+        var idComment = int.Parse(Request["id"].ToString());
+        OnPost(idComment, value[1], value[2]);
     }
 
     var db = Database.Open("connectionstring");
-    var query = db.Query("SELECT * FROM COMENTS WHERE "+value[2]+" = @0 AND state = 1", value[1]);
+    var query = db.Query("SELECT * FROM COMENTS WHERE " + value[2] + " = @0 AND state = 1", value[1]);
+    var userSession = db.QuerySingle("SELECT type FROM USERS WHERE userID = @0 ", Session["userID"]);
 
     @functions{
         public void OnPost(int id, string urlID, string nameID)
@@ -15,11 +18,11 @@
             var queryDelete = "UPDATE COMENTS SET state = 0 WHERE comentID = @0";
             if (db.Execute(queryDelete, id) > 0)
             {
-                Response.Redirect("~/ComentPage.cshtml?=" + urlID + "=" + nameID);
+                Response.Redirect("~/ComentPage.cshtml?id=" + urlID + "=" + nameID);
             }
         }
     }
-    
+
 }
 
 <!DOCTYPE html>
@@ -28,13 +31,13 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title></title>
-    
+
 </head>
 <body>
     <div>
         @foreach (var row in query)
         {
-            var name = db.QuerySingle("SELECT name, type FROM USERS WHERE userID = @0 ", @row.userID);
+            var name = db.QuerySingle("SELECT name FROM USERS WHERE userID = @0 ", @row.userID);
             <div class="CommentsRegisters">
                 <div class="Image"><img id="ImgUserComment" src="Images/ImgUserComment.png" /></div>
                 <div class="User">
@@ -42,11 +45,12 @@
                     <textarea id="TextComments" disabled="disabled">@row.coment</textarea>
                 </div>
             </div>
-            if (name[1] == 0)
+
+            if (userSession[0] == 0)
             {
                 <form asp-page-handler="post" method="post">
                     <input class="btnDeleted" type="submit" value="Eliminar" />
-                    <input type="text" name="id" value="@row.comentID" />
+                    <input type="hidden" name="id" value="@row.comentID" />
                 </form>
             }
 
