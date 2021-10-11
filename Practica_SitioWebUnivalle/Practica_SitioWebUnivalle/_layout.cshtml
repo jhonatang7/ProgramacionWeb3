@@ -1,5 +1,10 @@
 ﻿@{
     Layout = null;
+    string[] urlMapsArray = new string[3]
+    { @"https://www.google.com.bo/maps/place/Univalle/@-17.3944482,-66.157903,17.96z/data=!4m5!3m4!1s0x93e373f68577d203:0x91952444175b21fa!8m2!3d-17.3942993!4d-66.1586606?hl=es",
+    @"https://www.google.com.bo/maps/place/Univalle+Am%C3%A9rica/@-17.3714751,-66.1613843,17.44z/data=!4m5!3m4!1s0x0:0xd48df5bdcb4243c0!8m2!3d-17.3724332!4d-66.1611006?hl=es",
+    @"https://www.google.com.bo/maps/place/Universidad+Privada+del+Valle/@-17.3343188,-66.2233518,15z/data=!4m5!3m4!1s0x93e375486cf5d4b1:0x207c3dbe2fcb8524!8m2!3d-17.3312118!4d-66.2260144?hl=es"
+    };
 }
 
 <!DOCTYPE html>
@@ -41,7 +46,7 @@
         .nav {
             width: 100%;
             margin: 0 auto;
-            background: #C44D58;
+            background: #900C3F;
             color: #f0f0f0;
             text-align: right;
         }
@@ -95,6 +100,77 @@
             color: white;
             text-decoration: none;
         }
+
+        #footer {
+            background-color: #900C3F;
+            height: 27vh;
+            margin: auto;
+            display: block;
+        }
+
+        .btn2 {
+            background-color: #900C3F;
+            color: white;
+            text-decoration: white;
+            border: 0px;
+            padding: 8px 15px;
+        }
+
+        #redes {
+            color: white;
+            text-align: center;
+            position: relative;
+            float: right;
+            top: 4px;
+        }
+
+        #dirreccion {
+            color: white;
+            text-align: center;
+            top: 9px;
+        }
+
+        #univalle {
+            position: relative;
+            float: left;
+        }
+
+        #numeros {
+            color: white;
+            text-align: center;
+            position: relative;
+            float: left;
+            left: 20px;
+        }
+
+        #univalle {
+            height: auto;
+            width: auto;
+            max-height: 140px;
+            max-width: 150px;
+        }
+
+        #face {
+            height: auto;
+            width: auto;
+            max-height: 30px;
+            max-width: 30px;
+        }
+
+        #insta {
+            height: auto;
+            width: auto;
+            max-height: 30px;
+            max-width: 30px;
+        }
+
+        #youtube {
+            height: auto;
+            width: auto;
+            max-height: 40px;
+            max-width: 40px;
+        }
+
     </style>
 </head>
 <body>
@@ -104,7 +180,7 @@
             <img src="~/Images/LogoUnivalle.png" />
             <nav class="nav">
                 <ul class="nav__menu">
-                    <li class="nav__menu-item"><a href="#">Inicio</a></li>
+                    <li class="nav__menu-item"><a href="~/index.cshtml">Inicio</a></li>
                     <li class="nav__menu-item">
                         <a>Materias</a>
                         <ul class="nav__submenu">
@@ -113,13 +189,40 @@
                         </ul>
                     </li>
                     <li class="nav__menu-item"><a href="~/Teacher.cshtml">Docentes</a></li>
+                    <li class="nav__menu-item"><a href="~/Login.cshtml">Cerrar Sesión</a></li>
                 </ul>
             </nav>
         </div>
         @RenderBody()
-        <div class="footer">
-                <h2>Copyright ©  <a href="#">Contactos</a></h2>
-        </div>
     </div>
+    <footer>
+
+        <img id="univalle" src="~/Images/univalle.jpg" />
+        <div id="footer">
+            <div id="redes">
+                <u> Contactanos en nuestras redes sociales</u> <br />
+
+                <img id="face" src="~/Images/facebook.png" /><a class="btn2" href="https://www.facebook.com/UnivalleBolivia">Facebook Univalle (Cochabamba)</a><br />
+                <img id="insta" src="~/Images/insta.png" /><a class="btn2" href="https://www.instagram.com/univalle_bolivia/?hl=es">Instagram Univalle</a><br /><br />
+                <img id="youtube" src="~/Images/youtube.jpg" /><a class="btn2" href="https://www.youtube.com/user/univallebolivia">Youtube Univalle</a><br />
+            </div>
+
+            <div id="numeros">
+                <u>Nuestros numeros telefonicos</u><br /><br />
+                Sede Tiquipaya (4-4318800)<br /><br />
+                Sede America (4-4150300)<br /><br />
+                Sede Ayacucho (4-4150200)<br /><br />
+            </div>
+
+            <div id="dirreccion">
+                <u> ¿Donde nos encontramos?</u> <br /><br />
+
+                <a class="btn2" href="@urlMapsArray[2]">Sede Tiquipaya</a><br /><br />
+                <a class="btn2" href="@urlMapsArray[1]">Sede America</a> <br /><br />
+                <a class="btn2" href="@urlMapsArray[0]">Sede Ayacucho</a> <br />
+            </div>
+        </div>
+    </footer>
 </body>
+
 </html>

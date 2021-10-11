@@ -4,6 +4,7 @@
     Validation.RequireField("txtSeccondLastName", "SeccondLastName is required");
     Validation.RequireField("txtEmail", "Email is required");
     Validation.Add("txtEmail", Validator.Regex(@"^([\w]*[\w\.]*(?!\.))", "el formato no es el correcto"));
+    Validation.RequireField("txtUserName", "UserName is required");
     Validation.RequireField("txtPassword1", "Password1 is required");
     Validation.Add("txtPassword1", Validator.EqualsTo("txtPassword2", "Las contraseñas deben ser iguales"));
     Validation.RequireField("txtPassword2", "Password2 is required");
@@ -12,7 +13,7 @@
     var Name = Request.Form["txtName"];
     var LastName = Request.Form["txtLastName"];
     var SeccondLastName = Request.Form["txtSeccondLastName"];
-    var UserName = Request.Form["txtName"];
+    var UserName = Request.Form["txtUserName"];
     var Password = Request.Form["txtPassword1"];
     var mail = Request.Form["txtEmail"];
     var type = 0;
@@ -28,8 +29,8 @@
     {
         if (IsPost)
         {
-            var insertQuery = @"INSERT INTO users (name, lastName, userName, password, mail, type) values(@0, @1, @2, @3, @4, @5)";
-            db.Execute(insertQuery, Name, LastName + SeccondLastName, UserName, Password, mail + email, type);
+            var insertQuery = @"INSERT INTO users (name, lastName, secondLastName, userName, password, mail, type) values(@0, @1, @2, @3, @4, @5, @6)";
+            db.Execute(insertQuery, Name, LastName, SeccondLastName, UserName, Password, mail + email, type);
             Response.Redirect("~/Login");
         }
     }
@@ -135,6 +136,7 @@
                         <option value="@email2" >@email2</option>
                     </select><br />
                 </div>
+                <input class="textBox" type="text" placeholder="Nombre de Usuario" name="txtUserName" value="@UserName" required="required"/><br />
                 <input class="textBox" type="password" placeholder="Contraseña" name="txtPassword1" value="@Password" required="required" /><br />
                 <input class="textBox" type="password" placeholder="Repita su Contraseña" name="txtPassword2" value="" required="required" /><br />
                 <input class="btnSend" type="submit" value="REGISTRARSE" />

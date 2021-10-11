@@ -96,6 +96,14 @@
   <ItemGroup>
     <Content Include="css\styleSubjectCard.css" />
     <Content Include="Images\BDD1.jpg" />
+    <Content Include="Images\facebook.png" />
+    <Content Include="Images\inf 1.jpg" />
+    <Content Include="Images\inf 3.jpg" />
+    <Content Include="Images\inf 4.jpeg" />
+    <Content Include="Images\inf2.jpg" />
+    <Content Include="Images\inf5.jpeg" />
+    <Content Include="Images\inf6.jpeg" />
+    <Content Include="Images\insta.png" />
     <Content Include="Images\Semester\2.jpg" />
     <Content Include="Images\ImgUserComment.png" />
     <Content Include="Images\LogoUnivalle.png" />
