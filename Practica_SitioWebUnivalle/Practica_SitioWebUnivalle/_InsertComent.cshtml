@@ -14,7 +14,7 @@
         {
             var insertQuery = @"INSERT INTO coments (coment, userID, subjectID) values(@0, @1, @2);";
             db.Execute(insertQuery, coment, userID, subjectID);
-            Response.Redirect("~/ComentPage.cshtml?=" + value[1] + "=" + value[2]);
+            Response.Redirect("~/ComentPage.cshtml?id=" + value[1] + "=" + value[2]);
         }
     }
     else
@@ -25,7 +25,7 @@
             {
                 var insertQuery = @"INSERT INTO coments (coment, userID, teacherID) values(@0, @1, @2);";
                 db.Execute(insertQuery, coment, userID, teacherID);
-                Response.Redirect("~/ComentPage.cshtml?="+value[1]+"="+value[2]);
+                Response.Redirect("~/ComentPage.cshtml?id=" + value[1]+"="+value[2]);
             }
         }
     }
