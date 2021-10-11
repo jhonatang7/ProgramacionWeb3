@@ -1,5 +1,23 @@
 ﻿@{
-    Layout = null;
+    var db = Database.Open("connectionstring");
+    var query = db.Query("SELECT * FROM COMENTS WHERE subjectID = 2 AND state = 1");
+
+    @functions{
+        public string Message { get; set; } = "";
+        public void OnPost(int id)
+        {
+            var db = Database.Open("connectionstring");
+            var queryDelete = "UPDATE COMENTS SET state = 0 WHERE userID = @0";
+            if (db.Execute(queryDelete, id) > 0)
+            {
+                Response.Redirect("~/CommentStructure");
+            }
+        }
+    }
+    if (IsPost)
+    {
+        OnPost(int.Parse(Request["id"]));
+    }
 }
 
 <!DOCTYPE html>
@@ -15,6 +33,7 @@
             border: 1px solid;
             border-radius: 5px;
         }
+
         .User {
             flex: 1;
             padding: 10px;
@@ -42,6 +61,7 @@
             display: flex;
             border: solid 1px;
             border-radius: 10px;
+            margin: 10px;
         }
 
         #btnSendComment {
@@ -55,16 +75,16 @@
             border: 2px solid rgba(165, 26, 69, 1);
         }
 
-        #btnSendComment:hover {
-            background-color: white;
-            color: rgba(200, 31, 83, 0.88);
-        }
+            #btnSendComment:hover {
+                background-color: white;
+                color: rgba(200, 31, 83, 0.88);
+            }
+
         #ImgUserComment {
             position: center;
             width: 100%;
             height: 100%;
         }
-
     </style>
 </head>
 <body>
@@ -75,13 +95,23 @@
             <button id="btnSendComment">Enviar Comentario</button>
         </form>
         <br />
-        <div class="CommentsRegisters">
-            <div class="Image"><img id="ImgUserComment" src="Images/ImgUserComment.png" /></div>
-            <div class="User">
-                <label>Nombre Usuario</label><br />
-                <textarea id="TextComments" disabled="disabled"></textarea>
+
+        @foreach (var row in query)
+        {
+            var name = db.QuerySingle("SELECT name FROM USERS WHERE userID = @0 ", @row.userID);
+            <div class="CommentsRegisters">
+                <div class="Image"><img id="ImgUserComment" src="Images/ImgUserComment.png" /></div>
+                <div class="User">
+                    <label>@name[0]</label><br />
+                    <textarea id="TextComments" disabled="disabled">@row.coment</textarea>
+                </div>
             </div>
-        </div>
+            <form asp-page-handler="post" method="post">
+                <input type="submit" value="Modificar" />
+                <input type="hidden" name="id" value="@row.userID" />
+            </form>
+        }
+        <p>@Message</p>
     </div>
 </body>
 </html>

@@ -1,5 +1,27 @@
 ﻿@{
-    Layout = null;
+    var userName = "";
+    var password = "";
+    var message = "";
+    Validation.RequireField("txtUserName", "UserName is required");
+    Validation.RequireField("txtPassword", "Password is required");
+
+    if (IsPost && Validation.IsValid())
+    {
+        userName = Request["txtUserName"];
+        password = Request["txtPassword"];
+        var db = Database.Open("connectionstring");
+        var query = @"SELECT * FROM USERS WHERE userName = @0 AND password = @1";
+        var grid = db.QuerySingle(query, userName, password);
+        
+        if ( grid != null)
+        {
+            Response.Redirect("~/ThirdSemester");
+        }
+        else
+        {
+            message = "Usuario Invalido";
+        }
+    }
 }
 
 <!DOCTYPE html>
@@ -70,6 +92,9 @@
             margin: 5px;
             
         }
+        .labelAnswer{
+            font-size: 20px;
+        }
 
     </style>
 </head>
@@ -77,13 +102,14 @@
     <div>
         <form action="" method="post">
             <div class="LoginRegister">
-                <img src="~/Images/LogoUnivalle.png" id="logoU" width="100" height="100" ></img><br />
+                <img src="~/Images/LogoUnivalle.png" id="logoU" width="100" height="100" /><br />
                 <label id="TitleLogin">Univalle Login</label><br />
-                <label class="label" for="txtUserName">Nombre de Usuario</label><br />
                 <input class="textBox" type="text" placeholder="Nombre de Usuario" name="txtUserName" value="" /><br />
-                <label class="label" for="txtPassword">Contraseña</label><br />
+                <label class="labelAnswer">@Html.ValidationMessage("txtUserName")</label><br />
                 <input class="textBox" type="password" placeholder="Contraseña" name="txtPassword" value="" /><br />
-                <input class="btnSend" type="button" value="LOGIN" />
+                <label class="labelAnswer">@Html.ValidationMessage("txtPassword")</label><br />
+                <label class="labelAnswer">@message</label>
+                <input class="btnSend" type="submit" value="LOGIN" />
             </div>
         </form>
     </div>
