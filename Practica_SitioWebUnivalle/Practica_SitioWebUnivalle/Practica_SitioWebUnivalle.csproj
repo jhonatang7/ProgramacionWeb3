@@ -124,6 +124,12 @@
     <Content Include="Login.cshtml" />
     <Content Include="ThirdSemester.cshtml" />
     <Content Include="_InsertComent.cshtml" />
+    <Content Include="informacion1.cshtml" />
+    <Content Include="informacion2.cshtml" />
+    <Content Include="informacion3.cshtml" />
+    <Content Include="informacion4.cshtml" />
+    <Content Include="informacion5.cshtml" />
+    <Content Include="informacion6.cshtml" />
     <None Include="packages.config" />
     <Content Include="RegisterForm.cshtml" />
     <Content Include="SecondSemester.cshtml" />
