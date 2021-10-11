@@ -27,7 +27,7 @@ body {
     box-shadow: 0px 10px 20px -9px rgba(0, 0, 0, 0.5);
     text-align: center;
     transition: all 0.4s;
-    background: url(../Images/Semester/2.jpg) center no-repeat;
+    background: url(../Images/Semester/3.jpg) center no-repeat;
     background-size: 100%;
     background-color: #DF425F;
 }
@@ -166,7 +166,7 @@ h3:after {
 
     .card-info a {
         display: block;
-        width: 100px;
+        width: 130px;
         margin: 15px auto;
         background: #fff;
         color: #444;

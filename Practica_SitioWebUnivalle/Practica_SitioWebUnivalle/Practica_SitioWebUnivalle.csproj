@@ -109,22 +109,31 @@
     <Content Include="Images\LogoUnivalle.png" />
     <Content Include="Images\Semester\1.jpg" />
     <Content Include="Images\Semester\3.jpg" />
-    <Content Include="Images\univalle.jpg" />
-    <Content Include="Images\youtube.jpg" />
+    <Content Include="Images\Teacher\1.jpg" />
+    <Content Include="Images\Teacher\2.jpg" />
+    <Content Include="Images\Teacher\3.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CommentStructure.cshtml" />
+    <Content Include="_ComentsSelect.cshtml" />
+    <Content Include="ComentPage.cshtml" />
     <None Include="index.cshtml" />
     <Content Include="Login.cshtml" />
     <Content Include="ThirdSemester.cshtml" />
+    <Content Include="_InsertComent.cshtml" />
     <Content Include="informacion1.cshtml" />
+    <Content Include="informacion2.cshtml" />
+    <Content Include="informacion3.cshtml" />
+    <Content Include="informacion4.cshtml" />
+    <Content Include="informacion5.cshtml" />
+    <Content Include="informacion6.cshtml" />
     <None Include="packages.config" />
     <Content Include="RegisterForm.cshtml" />
     <Content Include="SecondSemester.cshtml" />
+    <Content Include="Teacher.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

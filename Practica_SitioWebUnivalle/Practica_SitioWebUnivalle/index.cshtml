@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = null;
+    Layout = "_layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -89,34 +89,6 @@
             display: block;
         }
 
-        #univalle {
-            height: auto;
-            width: auto;
-            max-height: 140px;
-            max-width: 150px;
-        }
-
-        #face {
-            height: auto;
-            width: auto;
-            max-height: 30px;
-            max-width: 30px;
-        }
-
-        #insta {
-            height: auto;
-            width: auto;
-            max-height: 30px;
-            max-width: 30px;
-        }
-
-        #youtube {
-            height: auto;
-            width: auto;
-            max-height: 40px;
-            max-width: 40px;
-        }
-
         .btn {
             background-color: white;
             color: darkred;
@@ -124,54 +96,9 @@
             border: 1px solid white;
             padding: 8px 15px;
         }
-
-        #footer {
-            background-color: #900C3F;
-            height: 27vh;
-            margin: auto;
-            display: block;
-        }
-
-        .btn2 {
-            background-color: #900C3F;
-            color: white;
-            text-decoration: white;
-            border: 0px;
-            padding: 8px 15px;
-        }
-
-        #redes {
-            color: white;
-            text-align: center;
-            position: relative;
-            float: right;
-            top: 4px;
-        }
-
-        #dirreccion {
-            color: white;
-            text-align: center;
-            top: 9px;
-        }
-
-        #univalle {
-            position: relative;
-            float: left;
-        }
-
-        #numeros {
-            color: white;
-            text-align: center;
-            position: relative;
-            float: left;
-            left: 20px;
-        }
     </style>
 </head>
 <body>
-    <div>
-        HOLA
-    </div>
     <section>
         <div id="titulo">
             <h2><u>Noticias y Informacion de Univalle</u></h2>
@@ -243,33 +170,6 @@
         </div><br /><br />
 
     </section>
-    <footer>
-
-        <img id="univalle" src="~/Images/univalle.jpg" />
-        <div id="footer">
-            <div id="redes">
-                <u> Contactanos en nuestras redes sociales</u> <br />
-
-                <img id="face" src="~/Images/facebook.png" /><a class="btn2" href="https://www.facebook.com/UnivalleBolivia">Facebook Univalle (Cochabamba)</a><br />
-                <img id="insta" src="~/Images/insta.png" /><a class="btn2" href="https://www.instagram.com/univalle_bolivia/?hl=es">Instagram Univalle</a><br /><br />
-                <img id="youtube" src="~/Images/youtube.jpg" /><a class="btn2" href="https://www.youtube.com/user/univallebolivia">Youtube Univalle</a><br />
-            </div>
-
-            <div id="numeros">
-                <u>Nuestros numeros telefonicos</u><br /><br />
-                Sede Tiquipaya (4-4318800)<br /><br />
-                Sede America (4-4150300)<br /><br />
-                Sede Ayacucho (4-4150200)<br /><br />
-            </div>
-
-            <div id="dirreccion">
-                <u> ¿Donde nos encontramos?</u> <br /><br />
-
-                <a class="btn2" href="">Sede Tiquipaya</a><br /><br />
-                <a class="btn2" href="">Sede America</a> <br /><br />
-                <a class="btn2" href="">Sede Ayacucho</a> <br />
-            </div>
-        </div>
-    </footer>
+    
 </body>
 </html>

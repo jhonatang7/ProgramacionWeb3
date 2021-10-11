@@ -1,0 +1,53 @@
+﻿@{
+    string[] value = Request.Url.Query.Split('=');
+    Validation.RequireField("TextComent", "coment is required");
+
+    var coment = Request.Form["TextComent"];
+    var userID = Session["userID"];
+    var subjectID = value[1];
+    var teacherID = value[1];
+    var db = Database.Open("connectionstring");
+
+    if (subjectID != null && "subjectID" == value[2])
+    {
+        if (IsPost && Validation.IsValid())
+        {
+            var insertQuery = @"INSERT INTO coments (coment, userID, subjectID) values(@0, @1, @2);";
+            db.Execute(insertQuery, coment, userID, subjectID);
+            Response.Redirect("~/ComentPage.cshtml?=" + value[1] + "=" + value[2]);
+        }
+    }
+    else
+    {
+        if (teacherID != null && "teacherID" == value[2])
+        {
+            if (IsPost && Validation.IsValid())
+            {
+                var insertQuery = @"INSERT INTO coments (coment, userID, teacherID) values(@0, @1, @2);";
+                db.Execute(insertQuery, coment, userID, teacherID);
+                Response.Redirect("~/ComentPage.cshtml?="+value[1]+"="+value[2]);
+            }
+        }
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <form method="post">
+            <div class="InsertComentStyle">
+                <label>Agregar comentario:</label><br />
+                <textarea name="TextComent" class="MyComment"></textarea><br />
+                <button id="btnSendComment">Enviar Comentario</button>
+            </div>
+            
+        </form>
+    </div>
+</body>
+</html>
